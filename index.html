@@ -10,11 +10,35 @@
 <body>
     <div class="container">
         <h1>Cek Kehadiran Khodam</h1>
-        <form action="cek_khodam.php" method="post">
-            <input type="text" name="nama" placeholder="Masukkan Nama Anda" required>
-            <button type="submit" name="cek_khodam">Cek Khodam</button>
+        <form>
+            <input type="text" id="nama" placeholder="Masukkan Nama Anda" required>
+            <button type="button" onclick="cekKhodam()">Cek Khodam</button>
         </form>
+        <div id="result" style="display: none; margin-top: 20px;"></div>
+        <footer>&copy; 2024 Cek Khodam Vrohh By Furrr</footer>
     </div>
-    <footer>Made with ♥ by [Furrr]</footer>
+
+
+    <script>
+        function cekKhodam() {
+            var nama = document.getElementById('nama').value;
+            var khodams = [
+                "Jin", "Malaikat", "Roh Leluhur", "Penjaga Gaib", "Khodam Pendamping", 
+                "Dewa", "Dewi", "Peri", "Siluman", "Naga", 
+                "Bidadari", "Sundel Bolong", "Pocong", "Wewe Gombel", "Tuyul",
+                "Gandarwa", "Banaspati", "Kuntilanak", "Genderuwo", "Palasik",
+                "Buto Ijo", "Kuntilanak Merah", "Nyai Roro Kidul", "Jaka Tarub", "Jaka Tingkir",
+                "Mak Lampir", "Nyai Blorong", "Sang Kuriang", "Ratu Kidul", "Ratu Laut Selatan",
+                "Ratu Pantai Selatan", "Kyai Slamet", "Nyai Panas", "Nyai Loreng", "Nyai Dandang",
+                "Kyai Cempaka", "Kyai Brojo", "Nyai Gandrung", "Nyai Kuning", "Kyai Segoro",
+                "Nyai Manis", "Nyai Ramping", "Kyai Linglung", "Kyai Wungkal", "Kyai Nyamplung",
+                "Nyai Sumilir", "Nyai Sumirah", "Nyai Juminten", "Nyai Kinayung", "Kyai Kendit"
+            ];
+            var result = khodams[Math.floor(Math.random() * khodams.length)];
+            var resultElement = document.getElementById('result');
+            resultElement.style.display = 'block';
+            resultElement.innerHTML = "<strong>Nama:</strong> " + nama + "<br><strong>Khodam yang hadir:</strong> " + result;
+        }
+    </script>
 </body>
 </html>
